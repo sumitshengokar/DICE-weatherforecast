@@ -34,13 +34,17 @@ The application exposes the following RESTful APIs:
 a. Get Forecast Summary:
 
  Endpoint: /weather/forecast/city/{city}
+ 
  Method: GET
+ 
  Path Parameter: city (e.g., /weather/forecast/city/{city=Berlin})
 
 b.  Get Hourly Forecast:
 
  Endpoint: /weather/forecast/hourly/{city}
+ 
  Method: GET
+ 
  Path Parameter: city (e.g., /weather/forecast/hourly/{city=London})
 
 ## BUILD AND RUN
