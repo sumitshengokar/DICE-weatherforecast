@@ -9,8 +9,8 @@ This Spring Boot application integrates with the Rapid API to provide weather fo
 - [Endpoints](#endpoints)
 - [Build and Run](#build-and-run)
 - [Usage](#usage)
-- [Exception Handling](#exception handling)
-- [Authentication Header](#Authentication Headers)
+- [Exception Handling](#exception-handling)
+- [Authentication Header](#Authentication-Headers)
 
 ## Prerequisites
 
