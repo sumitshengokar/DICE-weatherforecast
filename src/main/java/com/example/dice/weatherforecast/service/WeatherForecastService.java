@@ -2,6 +2,7 @@ package com.example.dice.weatherforecast.service;
 
 import com.example.dice.weatherforecast.entity.ErrorEntity;
 import com.example.dice.weatherforecast.exceptions.CityNotFound;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,18 @@ import java.net.http.HttpResponse;
 
 @Service
 public class WeatherForecastService {
+
+    @Value("${RAPID_API_KEY}")
+    private String RAPID_API_KEY;
+
+    @Value("${RAPID_API_HOST}")
+    private String RAPID_API_HOST;
     public ResponseEntity<Object> getCityInfo(String city) throws IOException, InterruptedException {
         try {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://forecast9.p.rapidapi.com/rapidapi/forecast/" + city + "/summary/"))
-                    .header("X-RapidAPI-Key", "94ac71f0c9msh8d5bf23728b3c6dp1f0827jsn39bfcb799372")
-                    .header("X-RapidAPI-Host", "forecast9.p.rapidapi.com")
+                    .header("X-RapidAPI-Key", RAPID_API_KEY)
+                    .header("X-RapidAPI-Host", RAPID_API_HOST)
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
